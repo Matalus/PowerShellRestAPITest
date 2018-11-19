@@ -215,7 +215,7 @@ WHILE ($listener.IsListening) {
         else {
 
             #no match
-            $message = "<body style='background-color: white;'><table>"
+            $message = "<body style='background-color: white; text-align: left;'><table>"
             $message += "<tr><th style ='font-weight: bold; font-size: 20pt; color: black'>This is not the API you're looking for *waves hand*</th></tr>"
             $message += "<tr><th style ='font-weight: bold; font-size: 16pt; color: black'>Commands:</th></tr>"
             $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black'>/starwars : generates random Star Wars quote </th></tr>"
