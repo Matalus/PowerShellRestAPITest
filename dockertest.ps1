@@ -1,5 +1,6 @@
-﻿
+﻿$count = 0
 While($true){
+    $count++
     $seed = @("starwars","topgun","flavortown")[(Get-Random -maximum 3)]; 
     $dockerstat = (docker inspect psrest | ConvertFrom-Json)
     $quote = (Invoke-RestMethod -Method GET -Uri "http://localhost:8000/$seed").body.table.tr.th.'#text' 
@@ -9,6 +10,6 @@ While($true){
     }else{
         "$([math]::Round($time.TotalHours,1)) Hours"
     }
-    "seed: $seed | docker: up $timestr | $quote"
-    Start-Sleep -Seconds 5 
+    "$count seed: $seed | docker: up $timestr | $quote"
+    Start-Sleep -Milliseconds 500
 }
