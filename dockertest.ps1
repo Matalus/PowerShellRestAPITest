@@ -1,4 +1,4 @@
-﻿$count = 0 #simple counter for number of tests
+﻿$count = 0 #simple counter for number of tests ---
 While($true){
     $count++
     $seed = @("starwars","topgun","flavortown")[(Get-Random -maximum 3)]; 
