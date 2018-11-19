@@ -216,12 +216,12 @@ WHILE ($listener.IsListening) {
 
             #no match
             $message = "<body style='background-color: white; text-align: left;'><table>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 20pt; color: black'>This is not the API you're looking for *waves hand*</th></tr>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 16pt; color: black'>Commands:</th></tr>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black'>/starwars : generates random Star Wars quote </th></tr>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black'>/topgun : generates random Top Gun quote </th></tr>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black'>/flavortown : generates random guy fieri quote </th></tr>"
-            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black'>/stop : stops http listener remotely </th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 20pt; color: black; text-align: left;'>This is not the API you're looking for *waves hand*</th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 16pt; color: black; text-align: left;'>Commands:</th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black; text-align: left;'>/starwars : generates random Star Wars quote </th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black; text-align: left;'>/topgun : generates random Top Gun quote </th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black; text-align: left;'>/flavortown : generates random guy fieri quote </th></tr>"
+            $message += "<tr><th style ='font-weight: bold; font-size: 14pt; color: black; text-align: left;'>/stop : stops http listener remotely </th></tr>"
             $message += "</table>"
             $message += "</body>"
             $response.ContentType = 'text/html'
