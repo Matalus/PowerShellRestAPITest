@@ -38,3 +38,21 @@ function Format-Json([Parameter(Mandatory, ValueFromPipeline)][String] $json) {
     }) -Join "`n"
   }
   Export-ModuleMember Format-Json
+
+Function GenToken($Length){
+    #Generate Alpha Number Chars    
+    $Alpha = @() 
+    65..90 | ForEach-Object{
+        $Alpha += [char]$_        
+    }
+    $Numeric = 0..9
+    [array]$AlphaNumeric = $Alpha + $Numeric
+     
+    [string]$Token = ""
+    For($x=0; $x -le $Length; $x++){
+        $Token += $AlphaNumeric[(Get-Random -Minimum 0 -Maximum $AlphaNumeric.Length)]
+    }
+    Return $Token
+ }
+
+ Export-ModuleMember GenToken
