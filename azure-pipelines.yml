@@ -10,9 +10,11 @@ variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- powershell: $Build | format-list
-  displayName: ls
+- powershell: .\Server.ps1
+  displayName: 'Start Listener'
+- powershell: .\dockertest.ps1
+  displayName: 'Test API Locally'
 - powershell: docker build -f Dockerfile -t $(imageName) $PWD.Path
-  displayName: 'docker build'
+  displayName: 'Docker Build'
 - powershell: docker run --publish 8000:8000 -h psrestapi $(imageName)
-  displayName: 'docker run'
+  displayName: 'Docker Run'
