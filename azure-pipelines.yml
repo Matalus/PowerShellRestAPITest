@@ -4,15 +4,17 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'vs2107-win2016'
 
 variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- script: pwsh -file ./server.ps1
+- powershell: $Build
+  displayName: 'Build Var'
+- powershell: powershell -file .\server.ps1
   displayName: 'Start Listener'
-- powershell: pwsh -file ./dockertest.ps1
+- powershell: powershell -file .\dockertest.ps1
   displayName: 'Test API Locally'
 - powershell: docker build -f Dockerfile -t $(imageName) $PWD.Path
   displayName: 'Docker Build'
