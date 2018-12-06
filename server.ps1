@@ -2,12 +2,14 @@
 
 $ErrorActionPreference = "Stop"
 
-#Auto Elevation
-If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {   
-    Write-Host "Elevating Prompt..."
-    $arguments = "& '" + $myinvocation.mycommand.definition + "'"
-    Start-Process powershell -Verb runAs -ArgumentList $arguments
-    Break
+#Auto Elevation - Only run on PS Desktop Windows - Don't run on PSCore v6+
+if($Host.Version -lt [version]"6.0.0.0"){
+    If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {   
+        Write-Host "Elevating Prompt..."
+        $arguments = "& '" + $myinvocation.mycommand.definition + "'"
+        Start-Process powershell -Verb runAs -ArgumentList $arguments
+        Break
+    }
 }
 $ListenPort = 8000
 #Define location and set
