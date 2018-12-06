@@ -10,7 +10,7 @@ variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- powershell: .\Server.ps1
+- powershell: .\server.ps1
   displayName: 'Start Listener'
 - powershell: .\dockertest.ps1
   displayName: 'Test API Locally'
