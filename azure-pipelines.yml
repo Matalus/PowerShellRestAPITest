@@ -10,7 +10,7 @@ variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- powershell: $Build | fl *
+- powershell: $Build | format-list
   displayName: ls
 - powershell: docker build -f Dockerfile -t $(imageName) $PWD.Path
   displayName: 'docker build'
