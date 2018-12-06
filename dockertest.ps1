@@ -1,8 +1,8 @@
 ﻿$count = 0 #simple counter for number of tests 
-While($true){
+While($count -le 25){
     $count++
     $seed = @("starwars","topgun","flavortown")[(Get-Random -maximum 3)]; 
-    $dockerstat = (docker inspect psrest | ConvertFrom-Json)
+    $dockerstat = (docker inspect $(imageName) | ConvertFrom-Json)
     $quote = (Invoke-RestMethod -Method GET -Uri "http://localhost:8000/$seed").body.table.tr.th.'#text' 
     $time = New-TimeSpan -Start ([datetime]$dockerstat.State.StartedAt) -End (get-date)
     $timestr = if($time.hours -lt 1){
