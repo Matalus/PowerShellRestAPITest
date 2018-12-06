@@ -10,7 +10,7 @@ variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- powershell: $Build
+- powershell: $(build)
   displayName: 'Build Var'
 - powershell: powershell -file .\server.ps1
   displayName: 'Start Listener'
