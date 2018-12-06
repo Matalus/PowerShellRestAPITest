@@ -1,5 +1,7 @@
 # PowerShellRestAPITest
 
+[![Build Status](https://dev.azure.com/mhamende/mhamende/_apis/build/status/Matalus.PowerShellRestAPITest)](https://dev.azure.com/mhamende/mhamende/_build/latest?definitionId=1)
+
 execute server.ps1 to start server by default listens on port 8000, can be reconfigured by changing $ListenPort variable in script
 
 to launch in docker execute: 
