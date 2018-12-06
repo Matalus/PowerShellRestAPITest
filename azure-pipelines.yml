@@ -10,7 +10,7 @@ variables:
   imageName: 'psrest:$(build.buildId)'
 
 steps:
-- powershell: docker build -f Dockerfile -t $(imageName)
+- powershell: docker build -f Dockerfile -t $(imageName) .\
   displayName: 'docker build'
-- powershell: docker run --publish 8000:8000 -h ps_serv $(imageName)
+- powershell: docker run --publish 8000:8000 -h psrestapi $(imageName)
   displayName: 'docker run'
