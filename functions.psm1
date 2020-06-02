@@ -45,8 +45,12 @@ Function GenToken($Length){
     65..90 | ForEach-Object{
         $Alpha += [char]$_        
     }
+    $LowerAlpha = @()
+    97.122 | ForEach-Object{
+        $LowerAlpha += [char]$_
+    }
     $Numeric = 0..9
-    [array]$AlphaNumeric = $Alpha + $Numeric
+    [array]$AlphaNumeric = $LowerAlpha + $Alpha + $Numeric 
      
     [string]$Token = ""
     For($x=0; $x -le $Length; $x++){
